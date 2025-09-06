@@ -8,24 +8,31 @@
     "net9.0": []
   },
   "packageFolders": {
-    "/Users/admin/.nuget/packages/": {}
+    "C:\\Users\\USER\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Lab Exercise/assignment1/assignment1.csproj",
+      "projectUniqueName": "C:\\Users\\USER\\Documents\\UPTM COURSE OVERVIEW\\semester5\\zul\\FuelTrack-Malaysia\\assignment1.csproj",
       "projectName": "assignment1",
-      "projectPath": "/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Lab Exercise/assignment1/assignment1.csproj",
-      "packagesPath": "/Users/admin/.nuget/packages/",
-      "outputPath": "/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Lab Exercise/assignment1/obj/",
+      "projectPath": "C:\\Users\\USER\\Documents\\UPTM COURSE OVERVIEW\\semester5\\zul\\FuelTrack-Malaysia\\assignment1.csproj",
+      "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\USER\\Documents\\UPTM COURSE OVERVIEW\\semester5\\zul\\FuelTrack-Malaysia\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/admin/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -68,7 +75,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.304/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
