@@ -1,0 +1,61 @@
+<html>
+<head>
+    <title>Page 1</title>
+    <script type="text/javascript">
+        document.write("Hello World! (JavaScript in head section)");
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        document.write("<p>Hello World! (JavaScript in body section)</p>");
+    </script>
+
+    <p>Hello World! (in paragraph)</p>
+
+    <script type="text/javascript">
+        document.write("<p>Hello World! (JavaScript in body section)</p>");
+
+        var userName, age;
+        userName = "AHMAD";
+        document.write(userName + "<br>");
+
+        var number;
+        number = 10;
+        document.write("<br>" + number);
+
+        var name = prompt("Please enter your name");
+        document.write("<br>Hello " + name);
+
+        age = prompt("Please enter your age");
+        document.write("<br>Age " + age);
+
+        if (age >= 18) {
+            document.write("<br><b>Qualifies for driving. </b>");
+        } else {
+            document.write("<br><b>Does not qualify for driving. </b>");
+        }
+
+        var num1, num2, x, y, z, a;
+        num1 = prompt("Please enter a number");
+        num2 = prompt("Please enter a number");
+
+        num1 = parseInt(num1);
+        num2 = parseInt(num2);
+
+        x = num1 + num2;
+        y = num1 - num2;
+        z = num1 * num2;
+        a = num1 / num2;
+
+        document.write("<br><br>Sum: " + x);
+        document.write("<br>Difference: " + y);
+        document.write("<br>Product: " + z);
+        document.write("<br>Quotient: " + a);
+
+        var i = 8;
+        if ((i == 10) && (i > 0)) {
+            document.write("<br>" + i + " is greater than 0, less than 11");
+        }
+    </script>
+</body>
+</html>

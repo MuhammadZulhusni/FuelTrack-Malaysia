@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>Event Registration Form</Form></title> 
+<style type="text/css"> 
+ .title {
+    color: #00F;
+}
+</style>
+
+</head>
+<body>
+    <h1 class="title">Event Registration Form</h1>
+    <form method="post" action="register.php">
+        <table width="455">
+            <tr>
+                <td width="115">Firstname</td>
+                <td width="328"><p>
+                    <input type="text" name="fname2" id="fname2" size="48" />
+                </p></td>
+            </tr>
+        <tr>
+        <td>Comment</td>
+        <td><p>
+            <textarea name="comment" id="comment" cols="45" rows="5" ></textarea>
+        </p></td>
+        </tr>
+    <tr>
+        <td>Semester</td>
+        <td><input type="checkbox" name="sem" id="sem" />
+        <label for="semester">Semester 1<br/>
+        <input type="checkbox" name="sem" id="sem" />
+    Semester 2 <br/>
+    <br/>
+    </label></td>
+    </tr>
+    <tr>
+        <td>Gender</td>
+        <td><input type="radio" name="gender" id="gender" value="Male" />
+        <label for="gender">Male<br/>
+        <input type="radio" name="gender" id="gender" value="Female" />
+    Female <br/>
+<br/>
+</label></td>
+</tr>
+<tr>
+    <td>Event</td>
+    <td><select name="event" id="event" size="3" >
+        <option>Career Talk</option>
+        <option>Fiancial Management Course</option>
+        <option>Cyber Security</option>
+    </select></td>
+</tr>
+        </table>
+<p>
+    <input type="submit" name="submit" id="submit" value="Register" />
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="reset" name="reset" id="reset" value="Reset" />
+</p>
+<p>&nbsp;</p>
+    </form>
+</body>
+</html>
