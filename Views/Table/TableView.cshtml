@@ -1,0 +1,536 @@
+@model dynamic
+
+@{
+    ViewData["Title"] = "Fuel Price Table";
+}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+    :root {
+        --primary-blue: #2563eb;
+        --success-green: #059669;
+        --warning-orange: #d97706;
+        --danger-red: #dc2626;
+    }
+
+    body { 
+        min-height: 100vh;
+    }
+
+    .dashboard-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .fuel-row {
+        transition: all 0.3s ease;
+        border-radius: 12px;
+        margin-bottom: 8px;
+        padding: 12px;
+        background: white;
+        border-left: 4px solid transparent;
+    }
+
+    .fuel-row:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    .fuel-row.ron95 { border-left-color: var(--danger-red); }
+    .fuel-row.ron97 { border-left-color: var(--primary-blue); }
+    .fuel-row.diesel { border-left-color: var(--success-green); }
+
+    .fuel-badge {
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 4px 12px;
+        border-radius: 50px;
+    }
+
+    .badge-ron95 { background: var(--danger-red); }
+    .badge-ron97 { background: var(--primary-blue); }
+    .badge-diesel { background: var(--success-green); }
+
+    .price-tag {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #1f2937;
+    }
+
+    .filter-chip {
+        background: var(--primary-blue);
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 25px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        margin: 4px;
+    }
+
+    .filter-chip:hover { 
+        background: #1d4ed8; 
+        transform: translateY(-1px);
+    }
+
+    .filter-chip.active { 
+        background: var(--success-green); 
+    }
+
+    .stats-card {
+        background: white;
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        transition: transform 0.2s ease;
+    }
+
+    .stats-card:hover { transform: translateY(-3px); }
+
+    .search-box {
+        border-radius: 25px;
+        border: 2px solid #e5e7eb;
+        padding: 12px 20px;
+        font-size: 0.95rem;
+        transition: all 0.2s ease;
+    }
+
+    .search-box:focus {
+        border-color: var(--primary-blue);
+        box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 60px 20px;
+        color: #6b7280;
+    }
+
+    .loading-spinner {
+        border: 3px solid #f3f3f3;
+        border-top: 3px solid var(--primary-blue);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+    }
+
+    @@keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    /* NEW: Fade-in animation */
+    @@keyframes fade-in-up {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* NEW: Class to apply the animation */
+    .fade-in-up {
+        animation: fade-in-up 0.5s ease-out forwards;
+        opacity: 0; /* Initial state */
+        transform: translateY(20px); /* Initial state */
+    }
+</style>
+
+<div class="container-fluid py-4">
+    <div class="row mb-4">
+        <div class="col-12 text-center text-white">
+            <h1 class="display-5 fw-bold mb-2 text-primary">
+                <i class="bi bi-table me-3"></i>Fuel Price Table
+            </h1>
+            <p class="lead text-secondary">Real-time fuel pricing across Malaysia</p>
+        </div>
+    </div>
+
+    <div class="row mb-4" id="statsContainer">
+        <div class="col-md-4 mb-3">
+            <div class="stats-card">
+                <i class="bi bi-fuel-pump-fill text-danger fs-2 mb-2"></i>
+                <h3 class="h5 text-muted">RON95</h3>
+                <div class="price-tag text-danger" id="ron95-price">RM 0.00</div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="stats-card">
+                <i class="bi bi-fuel-pump text-primary fs-2 mb-2"></i>
+                <h3 class="h5 text-muted">RON97</h3>
+                <div class="price-tag text-primary" id="ron97-price">RM 0.00</div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="stats-card">
+                <i class="bi bi-truck text-success fs-2 mb-2"></i>
+                <h3 class="h5 text-muted">Diesel</h3>
+                <div class="price-tag text-success" id="diesel-price">RM 0.00</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="dashboard-card p-4">
+                <div class="row mb-4">
+                    <div class="col-lg-6 mb-3">
+                        <div class="d-flex flex-wrap">
+                            <button class="filter-chip active" data-filter="all">All Fuels</button>
+                            <button class="filter-chip" data-filter="ron95">RON95</button>
+                            <button class="filter-chip" data-filter="ron97">RON97</button>
+                            <button class="filter-chip" data-filter="diesel">Diesel</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-3">
+                        <div class="d-flex gap-2">
+                            <input type="text" class="form-control search-box" id="searchBox" placeholder="🔍 Search by date or fuel type...">
+                            <button class="btn btn-outline-secondary" id="exportBtn" title="Export Data">
+                                <i class="bi bi-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="loadingState" class="text-center">
+                    <div class="loading-spinner"></div>
+                    <p class="text-muted">Loading fuel data...</p>
+                </div>
+
+                <div id="fuelDataContainer" style="display: none;">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h6 class="text-muted mb-0" id="resultsCount">Showing 0 records</h6>
+                        <div class="btn-group btn-group-sm">
+                            <button class="btn btn-outline-secondary" id="sortDate">
+                                <i class="bi bi-calendar3"></i> Sort by Date
+                            </button>
+                            <button class="btn btn-outline-secondary" id="sortPrice">
+                                <i class="bi bi-currency-exchange"></i> Sort by Price
+                            </button>
+                        </div>
+                    </div>
+                    <div id="fuelDataList"></div>
+                    
+                    <div class="d-flex justify-content-center mt-4">
+                        <nav>
+                            <ul class="pagination" id="pagination"></ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <div id="emptyState" class="empty-state" style="display: none;">
+                    <i class="bi bi-inbox fs-1 text-muted mb-3"></i>
+                    <h5 class="text-muted">No fuel data found</h5>
+                    <p class="text-muted">Try adjusting your search or filters</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        class FuelDashboard {
+            constructor() {
+                this.allData = [];
+                this.filteredData = [];
+                this.currentFilter = 'all';
+                this.searchQuery = '';
+                this.sortBy = 'date';
+                this.sortOrder = 'desc';
+                this.currentPage = 1;
+                this.itemsPerPage = 12;
+                
+                this.init();
+            }
+
+            async init() {
+                this.bindEvents();
+                await this.fetchData();
+            }
+
+            bindEvents() {
+                // Filter buttons
+                document.querySelectorAll('.filter-chip').forEach(btn => {
+                    btn.addEventListener('click', (e) => this.handleFilter(e));
+                });
+
+                // Search box
+                document.getElementById('searchBox').addEventListener('input', (e) => {
+                    this.searchQuery = e.target.value.toLowerCase();
+                    this.applyFilters();
+                });
+
+                // Sort buttons
+                document.getElementById('sortDate').addEventListener('click', () => this.handleSort('date'));
+                document.getElementById('sortPrice').addEventListener('click', () => this.handleSort('price'));
+
+                // Export button
+                document.getElementById('exportBtn').addEventListener('click', () => this.exportData());
+            }
+
+            async fetchData() {
+                try {
+                    const response = await fetch('/Dashboard/GetFuelData');
+                    const apiData = await response.json();
+                    
+                    this.allData = apiData.fuelPrices || [];
+                    this.updateStats();
+                    this.applyFilters();
+                    
+                    document.getElementById('loadingState').style.display = 'none';
+                    document.getElementById('fuelDataContainer').style.display = 'block';
+                    
+                } catch (error) {
+                    console.error('Failed to fetch data:', error);
+                    this.showError();
+                }
+            }
+
+            handleFilter(e) {
+                // Update active filter
+                document.querySelectorAll('.filter-chip').forEach(btn => btn.classList.remove('active'));
+                e.target.classList.add('active');
+                
+                this.currentFilter = e.target.dataset.filter;
+                this.applyFilters();
+            }
+
+            handleSort(sortBy) {
+                if (this.sortBy === sortBy) {
+                    this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
+                } else {
+                    this.sortBy = sortBy;
+                    this.sortOrder = 'desc';
+                }
+                this.applyFilters();
+            }
+
+            applyFilters() {
+                let filtered = [...this.allData];
+
+                // Apply fuel type filter
+                if (this.currentFilter !== 'all') {
+                    filtered = filtered.filter(item => item.fuel_type === this.currentFilter);
+                }
+
+                // Apply search filter
+                if (this.searchQuery) {
+                    filtered = filtered.filter(item => {
+                        const date = new Date(item.date).toLocaleDateString().toLowerCase();
+                        const fuelType = item.fuel_type.toLowerCase();
+                        return date.includes(this.searchQuery) || fuelType.includes(this.searchQuery);
+                    });
+                }
+
+                // Apply sorting
+                filtered.sort((a, b) => {
+                    let aVal, bVal;
+                    if (this.sortBy === 'date') {
+                        aVal = new Date(a.date);
+                        bVal = new Date(b.date);
+                    } else {
+                        aVal = a.price;
+                        bVal = b.price;
+                    }
+                    
+                    if (this.sortOrder === 'asc') {
+                        return aVal > bVal ? 1 : -1;
+                    } else {
+                        return aVal < bVal ? 1 : -1;
+                    }
+                });
+
+                this.filteredData = filtered;
+                this.currentPage = 1;
+                this.renderData();
+            }
+
+            renderData() {
+                const container = document.getElementById('fuelDataList');
+                const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+                const endIndex = startIndex + this.itemsPerPage;
+                const pageData = this.filteredData.slice(startIndex, endIndex);
+
+                if (pageData.length === 0) {
+                    document.getElementById('fuelDataContainer').style.display = 'none';
+                    document.getElementById('emptyState').style.display = 'block';
+                    return;
+                }
+
+                document.getElementById('fuelDataContainer').style.display = 'block';
+                document.getElementById('emptyState').style.display = 'none';
+
+                container.innerHTML = pageData.map((item, index) => {
+                    const date = new Date(item.date);
+                    const fuelType = item.fuel_type.toUpperCase();
+                    const badgeClass = `badge-${item.fuel_type}`;
+                    
+                    // Apply animation class and a dynamic delay
+                    const animationStyle = `style="animation-delay: ${index * 0.05}s;"`;
+
+                    return `
+                        <div class="fuel-row ${item.fuel_type} fade-in-up" ${animationStyle}>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="text-muted small">
+                                        <i class="bi bi-calendar3 me-1"></i>
+                                        ${date.toLocaleDateString('en-MY', { 
+                                            weekday: 'short', 
+                                            day: '2-digit', 
+                                            month: 'short', 
+                                            year: 'numeric' 
+                                        })}
+                                    </div>
+                                    <span class="fuel-badge ${badgeClass}">${fuelType}</span>
+                                </div>
+                                <div class="price-tag">RM ${item.price.toFixed(2)}</div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                this.updateResultsCount();
+                this.renderPagination();
+            }
+
+            updateResultsCount() {
+                const total = this.filteredData.length;
+                const start = (this.currentPage - 1) * this.itemsPerPage + 1;
+                const end = Math.min(start + this.itemsPerPage - 1, total);
+                
+                document.getElementById('resultsCount').textContent = 
+                    `Showing ${start}-${end} of ${total} records`;
+            }
+
+            renderPagination() {
+                const totalPages = Math.ceil(this.filteredData.length / this.itemsPerPage);
+                const pagination = document.getElementById('pagination');
+                
+                if (totalPages <= 1) {
+                    pagination.innerHTML = '';
+                    return;
+                }
+
+                let html = '';
+                
+                // Previous button
+                html += `<li class="page-item ${this.currentPage === 1 ? 'disabled' : ''}">
+                    <a class="page-link" href="#" data-page="${this.currentPage - 1}">Previous</a>
+                </li>`;
+
+                // Page numbers
+                for (let i = 1; i <= totalPages; i++) {
+                    if (i === 1 || i === totalPages || (i >= this.currentPage - 2 && i <= this.currentPage + 2)) {
+                        html += `<li class="page-item ${i === this.currentPage ? 'active' : ''}">
+                            <a class="page-link" href="#" data-page="${i}">${i}</a>
+                        </li>`;
+                    } else if (i === this.currentPage - 3 || i === this.currentPage + 3) {
+                        html += `<li class="page-item disabled"><span class="page-link">...</span></li>`;
+                    }
+                }
+
+                // Next button
+                html += `<li class="page-item ${this.currentPage === totalPages ? 'disabled' : ''}">
+                    <a class="page-link" href="#" data-page="${this.currentPage + 1}">Next</a>
+                </li>`;
+
+                pagination.innerHTML = html;
+
+                // Bind pagination events
+                pagination.querySelectorAll('a.page-link').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const page = parseInt(e.target.dataset.page);
+                        if (page && page !== this.currentPage) {
+                            this.currentPage = page;
+                            this.renderData();
+                        }
+                    });
+                });
+            }
+
+            updateStats() {
+                const latest = this.getLatestPrices();
+                
+                this.animateValue(document.getElementById('ron95-price'), 0, latest.ron95, 1000);
+                this.animateValue(document.getElementById('ron97-price'), 0, latest.ron97, 1000);
+                this.animateValue(document.getElementById('diesel-price'), 0, latest.diesel, 1000);
+            }
+
+            getLatestPrices() {
+                const latest = { ron95: 0, ron97: 0, diesel: 0 };
+                const sorted = [...this.allData].sort((a, b) => new Date(b.date) - new Date(a.date));
+                
+                for (const item of sorted) {
+                    if (!latest[item.fuel_type] && item.price) {
+                        latest[item.fuel_type] = item.price;
+                    }
+                }
+                
+                return latest;
+            }
+
+            exportData() {
+                const csv = this.convertToCSV(this.filteredData);
+                const blob = new Blob([csv], { type: 'text/csv' });
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `fuel-prices-${new Date().toISOString().split('T')[0]}.csv`;
+                a.click();
+                window.URL.revokeObjectURL(url);
+            }
+
+            convertToCSV(data) {
+                const headers = ['Date', 'Fuel Type', 'Price (RM)'];
+                const rows = data.map(item => [
+                    new Date(item.date).toLocaleDateString('en-MY'),
+                    item.fuel_type.toUpperCase(),
+                    item.price.toFixed(2)
+                ]);
+                
+                return [headers, ...rows].map(row => row.join(',')).join('\n');
+            }
+
+            showError() {
+                document.getElementById('loadingState').innerHTML = `
+                    <div class="text-center text-danger">
+                        <i class="bi bi-exclamation-triangle fs-1 mb-3"></i>
+                        <h5>Failed to load data</h5>
+                        <p>Please try refreshing the page</p>
+                    </div>
+                `;
+            }
+
+            animateValue(obj, start, end, duration) {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    obj.textContent = `RM ${(progress * (end - start) + start).toFixed(2)}`;
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+        }
+
+        // Initialize dashboard when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new FuelDashboard();
+        });
+    </script>
+}

@@ -1,0 +1,514 @@
+@{
+    ViewData["Title"] = "About Us";
+}
+
+<style>
+    :root {
+        --primary-color: #0d6efd;
+        --secondary-color: #6c757d;
+        --accent-color: #198754;
+        --light-bg: #f8f9fa;
+        --gradient-primary: linear-gradient(135deg, #0d6efd 0%, #4c84ff 100%);
+        --gradient-accent: linear-gradient(135deg, #198754 0%, #20c997 100%);
+        --shadow-light: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        --shadow-medium: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        --shadow-heavy: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+    }
+
+    /* Animation Keyframes */
+    @@keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Animation Class */
+    .animate-on-load {
+        animation: fadeInUp 1s ease-out forwards;
+        opacity: 0; /* Initially hidden */
+    }
+
+    /* Staggered animation delays */
+    .animate-on-load[data-delay="1"] { animation-delay: 0.2s; }
+    .animate-on-load[data-delay="2"] { animation-delay: 0.4s; }
+    .animate-on-load[data-delay="3"] { animation-delay: 0.6s; }
+    .animate-on-load[data-delay="4"] { animation-delay: 0.8s; }
+    .animate-on-load[data-delay="5"] { animation-delay: 1.0s; }
+    .animate-on-load[data-delay="6"] { animation-delay: 1.2s; }
+    .animate-on-load[data-delay="7"] { animation-delay: 1.4s; }
+    
+    .hero-section {
+        background: var(--gradient-primary);
+        color: white;
+        padding: 4rem 0 3rem;
+        margin: -2rem -15px 3rem -15px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 0 0 2rem 2rem;
+    }
+
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(255,255,255,0.1)"><polygon points="0,0 1000,0 1000,100"/></svg>');
+        opacity: 0.1;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .stats-container {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        margin-top: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .stat-item {
+        text-align: center;
+        color: white;
+    }
+
+    .stat-number {
+        font-size: 1.75rem;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 0.25rem;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+        opacity: 0.9;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .card-enhanced {
+        border: none;
+        border-radius: 1.25rem;
+        box-shadow: var(--shadow-medium);
+        transition: all 0.3s ease;
+        background: white;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .card-enhanced::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-primary);
+    }
+
+    .card-enhanced:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-heavy);
+    }
+
+    .icon-wrapper {
+        width: 60px;
+        height: 60px;
+        background: var(--gradient-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        position: relative;
+    }
+
+    .icon-wrapper::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: var(--gradient-primary);
+        opacity: 0.3;
+        transform: scale(1.2);
+        z-index: -1;
+    }
+
+    .team-card {
+        border: none;
+        border-radius: 1.5rem;
+        box-shadow: var(--shadow-medium);
+        transition: all 0.3s ease;
+        overflow: hidden;
+        background: white;
+        position: relative;
+    }
+
+    .team-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-accent);
+    }
+
+    .team-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
+    }
+
+    .team-image {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid var(--primary-color);
+        margin-bottom: 1.5rem;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .team-card:hover .team-image {
+        border-color: var(--accent-color);
+        transform: scale(1.05);
+    }
+
+    .contact-btn {
+        background: var(--gradient-primary);
+        border: none;
+        border-radius: 2rem;
+        padding: 0.6rem 1.5rem;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 0.85rem;
+    }
+
+    .contact-btn:hover {
+        background: var(--gradient-accent);
+        transform: scale(1.05);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    }
+
+    .badge-skill {
+        background: var(--gradient-accent);
+        color: white;
+        padding: 0.4rem 0.8rem;
+        border-radius: 1rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin: 0.2rem;
+        display: inline-block;
+    }
+
+    .section-divider {
+        height: 2px;
+        background: var(--gradient-primary);
+        margin: 4rem auto;
+        width: 60%;
+        border-radius: 2px;
+        opacity: 0.3;
+    }
+
+    .data-source-card {
+        background: linear-gradient(135deg, #fff 0%, var(--light-bg) 100%);
+        border: 2px solid #e9ecef;
+        border-radius: 1.5rem;
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow-medium);
+        transition: all 0.3s ease;
+    }
+
+    .data-source-card::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: var(--gradient-primary);
+        border-radius: 1.5rem;
+        z-index: -1;
+        opacity: 0.8;
+    }
+
+    .trust-indicators {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        margin: 1.5rem 0;
+        flex-wrap: wrap;
+    }
+
+    .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+
+    .trust-item i {
+        font-size: 1.2rem;
+    }
+
+    .official-link {
+        background: var(--gradient-primary);
+        color: white !important;
+        padding: 0.8rem 2rem;
+        border-radius: 2rem;
+        text-decoration: none !important;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 0.9rem;
+    }
+
+    .official-link:hover {
+        background: var(--gradient-accent);
+        transform: scale(1.05);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    }
+
+    @@media (max-width: 768px) {
+        .hero-section {
+            padding: 2rem 0;
+            margin: -1rem -15px 2rem -15px;
+        }
+        
+        .team-image {
+            width: 120px;
+            height: 120px;
+        }
+
+        .trust-indicators {
+            gap: 1rem;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+        }
+    }
+</style>
+
+<!-- Hero Section -->
+<div class="hero-section animate-on-load" data-delay="1">
+    <div class="container hero-content">
+        <div class="text-center">
+            <div class="d-inline-block mb-3">
+                <i class="fas fa-gas-pump fa-3x mb-3"></i>
+            </div>
+            <h1 class="display-3 fw-bold mb-3">About FuelTrack Malaysia</h1>
+            <p class="lead fs-4 mb-0 opacity-90">
+                Your trusted partner for staying informed about Malaysia's fuel prices and trends.
+            </p>
+            <div class="stats-container mx-auto animate-on-load" data-delay="2" style="max-width: 500px;">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <div class="stat-label">Updates</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <div class="stat-label">Official</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="stat-item">
+                            <span class="stat-number">Free</span>
+                            <div class="stat-label">Always</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <!-- Mission & Story Section -->
+    <div class="row g-5 mb-5">
+        <div class="col-lg-6 animate-on-load" data-delay="3">
+            <div class="card-enhanced h-100 p-4">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="icon-wrapper me-3">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h2 class="h3 fw-bold text-primary mb-0">Our Mission</h2>
+                    </div>
+                    <p class="text-secondary mb-4 lh-lg">
+                        Our mission is to empower Malaysian drivers with real-time, accurate, and easy-to-understand fuel price information. We believe that informed decisions lead to smarter journeys and better savings. By providing a centralized platform for fuel data, we aim to make fuel tracking simple and accessible for everyone.
+                    </p>
+                    <div class="d-flex flex-wrap">
+                        <span class="badge-skill">Real-time Data</span>
+                        <span class="badge-skill">User-Friendly</span>
+                        <span class="badge-skill">Accessible</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 animate-on-load" data-delay="4">
+            <div class="card-enhanced h-100 p-4">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="icon-wrapper me-3">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h2 class="h3 fw-bold text-primary mb-0">Our Story</h2>
+                    </div>
+                    <p class="text-secondary mb-4 lh-lg">
+                        FuelTrack Malaysia was created out of a simple need: a single, reliable source for fuel prices. We noticed that tracking daily price changes across various platforms was a hassle. We decided to build a simple, clean, and efficient solution that pulls data from official sources, providing you with a single point of truth for all your fuel-related queries.
+                    </p>
+                    <div class="d-flex flex-wrap">
+                        <span class="badge-skill">Innovation</span>
+                        <span class="badge-skill">Reliability</span>
+                        <span class="badge-skill">Efficiency</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider animate-on-load" data-delay="5"></div>
+
+    <!-- Team Section -->
+    <section class="mb-5 animate-on-load" data-delay="6">
+        <div class="text-center mb-5">
+            <div class="d-inline-block mb-3">
+                <i class="fas fa-users fa-2x text-primary"></i>
+            </div>
+            <h2 class="h2 fw-bold text-primary mb-3">Meet the Team</h2>
+            <p class="lead text-muted">The passionate individuals behind FuelTrack Malaysia.</p>
+        </div>
+        
+        <div class="row justify-content-center g-4">
+            <div class="col-md-5 col-lg-4">
+                <div class="team-card h-100 text-center p-4">
+                    <div class="pt-3">
+                        <img src="images/zulhusni.png" alt="Muhammad Zulhusni"
+                             class="team-image mx-auto d-block">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold mb-1">Muhammad Zulhusni bin Rosdan</h5>
+                            <p class="text-primary fw-semibold mb-3 small">AM2405015965</p>
+                            <div class="mb-3">
+                                <i class="fas fa-user-tie text-primary mb-2"></i>
+                                <p class="card-text text-muted small lh-base">
+                                    He is responsible for the API integration setup, dashboard design, and the development of the data table page.
+                                </p>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-primary rounded-pill">API Integration</span>
+                                <span class="badge bg-success rounded-pill">Dashboard Design</span>
+                            </div>
+                            <a href="https://wa.me/60182400849" target="_blank"
+                               class="btn contact-btn text-white">
+                                <i class="fab fa-whatsapp me-1"></i>Contact
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5 col-lg-4">
+                <div class="team-card h-100 text-center p-4">
+                    <div class="pt-3">
+                        <img src="images/yasierul.png" alt="Yasierul Firdaus"
+                             class="team-image mx-auto d-block">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold mb-1">Yasierul Firdaus bin Azizan</h5>
+                            <p class="text-primary fw-semibold mb-3 small">AM2405015974</p>
+                            <div class="mb-3">
+                                <i class="fas fa-palette text-primary mb-2"></i>
+                                <p class="card-text text-muted small lh-base">
+                                    He is the creative lead, focusing on the design and visual concepts for the homepage and About Us section.
+                                </p>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-primary rounded-pill">Homepage Design</span>
+                                <span class="badge bg-success rounded-pill">About Us Design</span>
+                            </div>
+                            <a href="https://wa.me/60137184740" target="_blank"
+                               class="btn contact-btn text-white">
+                                <i class="fab fa-whatsapp me-1"></i>Contact
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider animate-on-load" data-delay="7"></div>
+
+    <!-- Data Source Section -->
+    <section class="py-4 animate-on-load" data-delay="8">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="data-source-card p-5 text-center">
+                    <div class="mb-4">
+                        <i class="fas fa-database fa-3x text-primary mb-3"></i>
+                        <h2 class="h3 fw-bold text-primary mb-3">Credits and Data Source</h2>
+                    </div>
+                    
+                    <div class="trust-indicators mb-4">
+                        <div class="trust-item">
+                            <i class="fas fa-shield-alt text-success"></i>
+                            <span>Official Data</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fas fa-sync-alt text-primary"></i>
+                            <span>Real-time</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fas fa-check-circle text-success"></i>
+                            <span>Verified</span>
+                        </div>
+                    </div>
+
+                    <p class="text-muted mb-4 lh-lg">
+                        This website was developed as part of our project to provide users with the latest and most reliable
+                        fuel price information in Malaysia. All fuel price data is sourced directly from the official
+                        <span class="fw-bold text-primary">Government of Malaysia Open Data Portal</span>, ensuring accuracy and transparency
+                        for the public.
+                    </p>
+                    
+                    <a href="https://data.gov.my/data-catalogue/fuelprice"
+                       target="_blank"
+                       class="official-link">
+                        <i class="fas fa-external-link-alt"></i>
+                        <span>View Official Source</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
