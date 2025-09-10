@@ -26,7 +26,7 @@ To successfully build and run this project, ensure you have the following depend
 Begin by cloning the project from the GitHub repository to your local machine using the following command in your terminal:
 
 ```bash
-git clone [https://github.com/MuhammadZulhusni/FuelTrack-Malaysia.git](https://github.com/MuhammadZulhusni/FuelTrack-Malaysia.git)
+git clone https://github.com/MuhammadZulhusni/FuelTrack-Malaysia.git
 ```
 
 ### 2. Navigate to the Project Directory
