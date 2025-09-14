@@ -1,0 +1,210 @@
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrack-Malaysia.csproj.AssemblyReference.cache
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/rpswa.dswa.cache.json
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrack-Malaysia.GeneratedMSBuildEditorConfig.editorconfig
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrack-Malaysia.AssemblyInfoInputs.cache
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrack-Malaysia.AssemblyInfo.cs
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrack-Malaysia.csproj.CoreCompileInputs.cache
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrack-Malaysia.MvcApplicationPartsAssemblyInfo.cache
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrack-Malaysia.RazorAssemblyInfo.cache
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrack-Malaysia.RazorAssemblyInfo.cs
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrack-Malaysia.sourcelink.json
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/appsettings.Development.json
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/appsettings.json
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/FuelTrack-Malaysia.staticwebassets.runtime.json
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/FuelTrack-Malaysia.staticwebassets.endpoints.json
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/FuelTrack-Malaysia
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/FuelTrack-Malaysia.deps.json
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/FuelTrack-Malaysia.runtimeconfig.json
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/FuelTrack-Malaysia.dll
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/FuelTrack-Malaysia.pdb
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/CsvHelper.dll
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/IronCompress.dll
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/Microsoft.IO.RecyclableMemoryStream.dll
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/Parquet.dll
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/Snappier.dll
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/ZstdSharp.dll
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/runtimes/linux-arm64/native/libnironcompress.so
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/runtimes/linux-x64/native/libnironcompress.so
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/runtimes/osx-arm64/native/libnironcompress.dylib
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/runtimes/win-x64/native/nironcompress.dll
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/rjimswa.dswa.cache.json
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/rjsmrazor.dswa.cache.json
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/rjsmcshtml.dswa.cache.json
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/scopedcss/bundle/FuelTrack-Malaysia.styles.css
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/hjycbw373l-b9sayid5wm.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/lu4d3h4sgi-61n19gt1b8.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/8y89obn38k-xtxxf3hu2r.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/2tz3ywp1l7-bqjiyaj88i.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/9wzgws8yww-c2jlpeoesf.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/poatwvv46m-erw9l3u2r3.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/hzs3mosixo-aexeepp0ev.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/ntu8q9h3ot-d7shbmvgxk.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/xslslqc2a2-ausgxo2sd3.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/jchhiy4ch6-k8d9w2qqmf.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/b5r6ejd51m-cosvhxvwiu.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/qeu6uqs9w3-ub07r2b239.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/ccirdl5afs-fvhpjtyr6v.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/mubjmdrtum-b7pk76d08c.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/ekiouw82ko-fsbi9cje9m.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/szg6utokys-rzd6atqjts.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/q2g5z5d0vk-ee0r1s7dh0.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/5hqlvbfzre-dxx9fxp4il.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/hcd1n541sg-jd9uben2k1.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/9orgw6xcl3-khv3u5hwcm.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/8eo76x6rr0-r4e9w2rdcm.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/2mxkqditr1-lcd1t2u6c8.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/bf4p8zw6ur-c2oey78nd0.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/tpxweqvag8-tdbxkamptv.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/32ybhs8fwi-j5mq2jizvt.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/h9sqtbfe2c-06098lyss8.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/047hc5iyvf-nvvlpmu67g.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/11h9ibfvd9-s35ty4nyc5.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/93md3kohpx-pj5nd1wqec.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/h344jlqiet-46ein0sx1k.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/6snuddmqvi-v0zj4ognzu.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/jkh0lfeydj-37tfw0ft22.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/nq02ja3w8h-hrwsygsryq.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/tbj3v5skni-pk9g2wxc8p.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/9fk0o834m8-ft3s53vfgj.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/2f2gma5izi-6cfz1n2cew.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/ubymdysxf9-6pdc2jztkx.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/ps6gtdxgdk-493y06b0oq.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/pc9faxc97s-iovd86k7lj.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/3uu9sxdgl1-vr1egmr9el.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/i8ndfvxity-kbrnm935zg.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/b3frt19kob-jj8uyg4cgr.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/91v19rtb1a-y7v9cxd14o.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/gacr53dwit-notf2xhcfb.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/zsbmzce8wy-h1s4sie4z3.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/0r9hwwfqdn-63fj8s7r0e.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/782ijtxh6d-0j3bgjxly4.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/zi5tlu67vw-47otxtyo56.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/s2kgxrxxfw-4v8eqarkd7.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/f9yuw72sd5-356vix0kms.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/raa2kr87o7-83jwlth58m.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/lxnbvle5pa-mrlpezrjn3.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/m6mq7j1ux8-lzl9nlhx6b.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/glw7bs8ol7-ag7o75518u.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/qe3ud6i6sv-x0q3zqp4vz.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/61fa4u4yjy-0i3buxo5is.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/wpdtj67ldh-o1o13a6vjx.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/0bajtxznku-ttgo8qnofa.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/c5cvb2uov5-2z0ns9nrw6.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/qq44n7nsrh-muycvpuwrr.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/0y0i62dis7-87fc7y1x7t.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/7qmmq5v7r0-mlv21k5csn.gz
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/staticwebassets.build.json
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/staticwebassets.build.json.cache
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/staticwebassets.development.json
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/staticwebassets.build.endpoints.json
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrac.D5ED52C5.Up2Date
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrack-Malaysia.dll
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/refint/FuelTrack-Malaysia.dll
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrack-Malaysia.pdb
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrack-Malaysia.genruntimeconfig.cache
+/Users/admin/Downloads/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/ref/FuelTrack-Malaysia.dll
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/appsettings.Development.json
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/appsettings.json
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/FuelTrack-Malaysia.staticwebassets.endpoints.json
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/FuelTrack-Malaysia.staticwebassets.runtime.json
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/FuelTrack-Malaysia
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/FuelTrack-Malaysia.deps.json
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/FuelTrack-Malaysia.runtimeconfig.json
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/FuelTrack-Malaysia.dll
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/FuelTrack-Malaysia.pdb
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/CsvHelper.dll
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/IronCompress.dll
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/Microsoft.IO.RecyclableMemoryStream.dll
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/Parquet.dll
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/Snappier.dll
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/ZstdSharp.dll
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/runtimes/linux-arm64/native/libnironcompress.so
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/runtimes/linux-x64/native/libnironcompress.so
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/runtimes/osx-arm64/native/libnironcompress.dylib
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/bin/Debug/net9.0/runtimes/win-x64/native/nironcompress.dll
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrack-Malaysia.csproj.AssemblyReference.cache
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/rpswa.dswa.cache.json
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrack-Malaysia.GeneratedMSBuildEditorConfig.editorconfig
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrack-Malaysia.AssemblyInfoInputs.cache
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrack-Malaysia.AssemblyInfo.cs
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrack-Malaysia.csproj.CoreCompileInputs.cache
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrack-Malaysia.MvcApplicationPartsAssemblyInfo.cache
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrack-Malaysia.RazorAssemblyInfo.cache
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrack-Malaysia.RazorAssemblyInfo.cs
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrack-Malaysia.sourcelink.json
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/rjimswa.dswa.cache.json
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/rjsmrazor.dswa.cache.json
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/rjsmcshtml.dswa.cache.json
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/scopedcss/bundle/FuelTrack-Malaysia.styles.css
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/hjycbw373l-b9sayid5wm.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/lu4d3h4sgi-61n19gt1b8.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/8y89obn38k-xtxxf3hu2r.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/2tz3ywp1l7-bqjiyaj88i.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/9wzgws8yww-c2jlpeoesf.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/poatwvv46m-erw9l3u2r3.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/hzs3mosixo-aexeepp0ev.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/ntu8q9h3ot-d7shbmvgxk.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/xslslqc2a2-ausgxo2sd3.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/jchhiy4ch6-k8d9w2qqmf.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/b5r6ejd51m-cosvhxvwiu.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/qeu6uqs9w3-ub07r2b239.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/ccirdl5afs-fvhpjtyr6v.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/mubjmdrtum-b7pk76d08c.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/ekiouw82ko-fsbi9cje9m.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/szg6utokys-rzd6atqjts.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/q2g5z5d0vk-ee0r1s7dh0.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/5hqlvbfzre-dxx9fxp4il.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/hcd1n541sg-jd9uben2k1.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/9orgw6xcl3-khv3u5hwcm.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/8eo76x6rr0-r4e9w2rdcm.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/2mxkqditr1-lcd1t2u6c8.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/bf4p8zw6ur-c2oey78nd0.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/tpxweqvag8-tdbxkamptv.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/32ybhs8fwi-j5mq2jizvt.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/h9sqtbfe2c-06098lyss8.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/047hc5iyvf-nvvlpmu67g.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/11h9ibfvd9-s35ty4nyc5.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/93md3kohpx-pj5nd1wqec.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/h344jlqiet-46ein0sx1k.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/6snuddmqvi-v0zj4ognzu.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/jkh0lfeydj-37tfw0ft22.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/nq02ja3w8h-hrwsygsryq.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/tbj3v5skni-pk9g2wxc8p.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/9fk0o834m8-ft3s53vfgj.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/2f2gma5izi-6cfz1n2cew.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/ubymdysxf9-6pdc2jztkx.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/ps6gtdxgdk-493y06b0oq.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/pc9faxc97s-iovd86k7lj.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/3uu9sxdgl1-vr1egmr9el.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/i8ndfvxity-kbrnm935zg.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/b3frt19kob-jj8uyg4cgr.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/91v19rtb1a-y7v9cxd14o.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/gacr53dwit-notf2xhcfb.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/zsbmzce8wy-h1s4sie4z3.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/0r9hwwfqdn-63fj8s7r0e.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/782ijtxh6d-0j3bgjxly4.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/zi5tlu67vw-47otxtyo56.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/s2kgxrxxfw-4v8eqarkd7.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/f9yuw72sd5-356vix0kms.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/raa2kr87o7-83jwlth58m.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/lxnbvle5pa-mrlpezrjn3.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/m6mq7j1ux8-lzl9nlhx6b.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/glw7bs8ol7-ag7o75518u.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/qe3ud6i6sv-x0q3zqp4vz.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/61fa4u4yjy-0i3buxo5is.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/wpdtj67ldh-o1o13a6vjx.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/0bajtxznku-ttgo8qnofa.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/c5cvb2uov5-2z0ns9nrw6.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/qq44n7nsrh-muycvpuwrr.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/0y0i62dis7-87fc7y1x7t.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/compressed/7qmmq5v7r0-mlv21k5csn.gz
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/staticwebassets.build.json
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/staticwebassets.build.json.cache
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/staticwebassets.development.json
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/staticwebassets.build.endpoints.json
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrac.D5ED52C5.Up2Date
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrack-Malaysia.dll
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/refint/FuelTrack-Malaysia.dll
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrack-Malaysia.pdb
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/FuelTrack-Malaysia.genruntimeconfig.cache
+/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/obj/Debug/net9.0/ref/FuelTrack-Malaysia.dll

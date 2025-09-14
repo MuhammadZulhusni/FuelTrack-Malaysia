@@ -1,0 +1,755 @@
+@model dynamic
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<style>
+    /* 1. Define the fade-in-up animation */
+    @@keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* 2. Initial state for elements to be animated */
+    .fade-in-element {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    /* 3. Apply the animation on a class added by JavaScript */
+    .is-visible {
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .card {
+        border-radius: 1.5rem; /* More rounded corners */
+    }
+    
+    /* NEW: CSS for the icon animation */
+    @@keyframes pop-in {
+        0% { transform: scale(0); }
+        75% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+
+    .modal-icon-animated {
+        animation: pop-in 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+    }
+    
+    /* Empty State Styles */
+    .empty-state {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 4rem 2rem;
+        background-color: #f8f9fa;
+        border-radius: 1.5rem;
+        border: 2px dashed #e9ecef;
+        transition: all 0.3s ease;
+    }
+
+    .empty-state:hover {
+        border-color: #dee2e6;
+    }
+
+    .empty-state-icon {
+        font-size: 5rem;
+        color: #6c757d;
+        margin-bottom: 1rem;
+        transition: transform 0.3s ease;
+    }
+
+    .empty-state:hover .empty-state-icon {
+        transform: translateY(-5px);
+    }
+    
+    .chart-container-wrapper {
+        position: relative;
+    }
+
+    .chart-empty-state {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(5px);
+        z-index: 10;
+        border-radius: 1.5rem;
+        padding: 1rem;
+    }
+</style>
+
+<div class="container py-5">
+    <div class="row mb-4 text-center fade-in-element">
+        <h1 class="display-4 fw-bold text-primary">
+            <i class="bi bi-speedometer2 me-3"></i>Fuel Price Dashboard
+        </h1>
+        <p class="lead text-secondary">Real-time fuel price insights for Malaysia.</p>
+    </div>
+
+    <div class="card shadow-sm mb-4 border-0 rounded-3 fade-in-element">
+        <div class="card-body">
+            <h5 class="fw-semibold mb-3">Filter Data</h5>
+            <p class="text-muted">Use the filters below to refine your data by fuel type, year, or specific date.</p>
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <label for="fuelTypeFilter" class="form-label">Fuel Type</label>
+                    <select id="fuelTypeFilter" class="form-select">
+                        <option value="">All</option>
+                        <option value="ron95">RON95</option>
+                        <option value="ron97">RON97</option>
+                        <option value="diesel">Diesel</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="yearFilter" class="form-label">Year</label>
+                    <select id="yearFilter" class="form-select">
+                        <option value="">All</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="dateFilter" class="form-label">Date</label>
+                    <input type="date" id="dateFilter" class="form-control" />
+                </div>
+                <div class="col-md-3 d-flex align-items-end">
+                    <button id="resetFilters" class="btn btn-outline-primary w-100">
+                        <i class="bi bi-x-circle me-2"></i>Reset Filters
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4 fade-in-element" id="charts-section">
+        <h3 class="text-primary fw-bold mb-3">Time-Based Trends</h3>
+        <p class="lead text-muted mb-4">These charts show how fuel prices have changed over time, helping you identify daily and monthly patterns.</p>
+        
+        <div class="col-12 mb-4">
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-body">
+                    <h5 class="fw-semibold">Daily Fuel Price & Volume Trend</h5>
+                    <p class="card-text text-muted">This combo chart shows the daily price of each fuel type. Use the "bars" to see the price for RON95 and RON97, and the "line" to see the trend for Diesel. This helps you compare daily values and spot trends at a glance.</p>
+                    <div class="chart-container-wrapper">
+                        <canvas id="comboChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12">
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-body">
+                    <h5 class="fw-semibold">Monthly Price Comparison</h5>
+                    <p class="card-text text-muted">This vertical bar chart compares the average price of each fuel type on a monthly basis. The longer the bar, the higher the average price for that month.</p>
+                    <div class="chart-container-wrapper">
+                        <canvas id="verticalBarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mb-4 fade-in-element">
+        <h3 class="text-primary fw-bold mb-3">Distribution and Averages</h3>
+        <p class="lead text-muted mb-4">These charts provide a snapshot of how fuel types compare against each other in terms of price and data points.</p>
+        
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-body">
+                    <h5 class="fw-semibold">Price Distribution by Fuel Type</h5>
+                    <p class="card-text text-muted">This pie chart shows the proportion of data points for each fuel type within the selected filter. A larger slice means more data entries for that fuel type.</p>
+                    <div class="chart-container-wrapper">
+                        <canvas id="pieChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-body">
+                    <h5 class="fw-semibold">Average Price by Fuel Type</h5>
+                    <p class="card-text text-muted">This polar area chart visualizes the average price of each fuel type. The size of each slice corresponds to its average price, making it easy to see which fuel is the most expensive on average.</p>
+                    <div class="chart-container-wrapper">
+                        <canvas id="polarAreaChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mb-4 fade-in-element">
+        <h3 class="text-primary fw-bold mb-3">Statistical Insights</h3>
+        <p class="lead text-muted mb-4">These charts offer deeper statistical insights, such as price stability and monthly averages across different fuel types.</p>
+        
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-body">
+                    <h5 class="fw-semibold">Proportion of Daily Price Changes</h5>
+                    <p class="card-text text-muted">This doughnut chart shows the percentage of days with a price increase, decrease, or no change. This helps you understand the overall volatility of fuel prices.</p>
+                    <div class="chart-container-wrapper">
+                        <canvas id="doughnutChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-body">
+                    <h5 class="fw-semibold">Monthly Price Averages by Fuel Type</h5>
+                    <p class="card-text text-muted">This radar chart compares the average monthly price of each fuel type. The farther a point is from the center, the higher the average price for that month and fuel type. This is useful for spotting seasonal trends.</p>
+                    <div class="chart-container-wrapper">
+                        <canvas id="radarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="api-error-state" class="empty-state d-none">
+        <i class="bi bi-exclamation-triangle-fill empty-state-icon"></i>
+        <h4 class="fw-bold text-danger mb-2">Oops! Couldn't Load Data</h4>
+        <p class="text-muted">We're having trouble fetching the fuel price data right now. Please check your network connection or try again later.</p>
+    </div>
+</div>
+
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="successModalLabel">Success!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center py-4">
+                <i id="successIcon" class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i>
+                <p class="mt-3 fs-5">Filters have been reset successfully.</p>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></script>
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            // New JavaScript for fade-in effect
+            const fadeElements = document.querySelectorAll('.fade-in-element');
+            fadeElements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.2}s`;
+                el.classList.add('is-visible');
+            });
+            // End of new JS
+
+            const apiUrl = '/Dashboard/GetFuelData';
+            let comboChart = null;
+            let verticalBarChart = null;
+            let pieChart = null;
+            let polarAreaChart = null;
+            let doughnutChart = null;
+            let radarChart = null;
+            
+            let allFuelPrices = [];
+            
+            const chartsSection = document.getElementById('charts-section');
+            const apiErrorState = document.getElementById('api-error-state');
+            
+            const colors = {
+                ron95: 'rgba(253, 126, 20, 0.7)',
+                ron97: 'rgba(0, 123, 255, 0.7)',
+                diesel: 'rgba(40, 167, 69, 0.7)'
+            };
+
+            const fuelTypeFilter = document.getElementById('fuelTypeFilter');
+            const yearFilter = document.getElementById('yearFilter');
+            const dateFilter = document.getElementById('dateFilter');
+            const resetFiltersBtn = document.getElementById('resetFilters');
+
+            fuelTypeFilter.addEventListener('change', filterAndRender);
+            yearFilter.addEventListener('change', filterAndRender);
+            dateFilter.addEventListener('change', filterAndRender);
+            resetFiltersBtn.addEventListener('click', () => {
+                fuelTypeFilter.value = "";
+                yearFilter.value = "";
+                dateFilter.value = "";
+                filterAndRender();
+                showSuccessModal();
+            });
+            
+            async function fetchData() {
+                try {
+                    const response = await fetch(apiUrl);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const apiData = await response.json();
+                    
+                    allFuelPrices = apiData.fuelPrices;
+                    
+                    const years = [...new Set(allFuelPrices.map(item => new Date(item.date).getFullYear()))].sort();
+                    years.forEach(year => {
+                        const option = document.createElement('option');
+                        option.value = year;
+                        option.textContent = year;
+                        yearFilter.appendChild(option);
+                    });
+                    
+                    const defaultYear = '2025';
+                    if (years.includes(parseInt(defaultYear))) {
+                        yearFilter.value = defaultYear;
+                    }
+                    
+                    chartsSection.classList.remove('d-none');
+                    apiErrorState.classList.add('d-none');
+
+                    filterAndRender();
+
+                } catch (error) {
+                    console.error("Failed to fetch data:", error);
+                    showApiErrorState();
+                }
+            }
+            
+            function showApiErrorState() {
+                chartsSection.classList.add('d-none');
+                apiErrorState.classList.remove('d-none');
+            }
+            
+            function showEmptyState(chartId) {
+                const chartContainer = document.getElementById(chartId).parentNode;
+                
+                const existingEmptyState = chartContainer.querySelector('.chart-empty-state');
+                if (existingEmptyState) {
+                    existingEmptyState.remove();
+                }
+                
+                const emptyStateDiv = document.createElement('div');
+                emptyStateDiv.className = 'chart-empty-state';
+                emptyStateDiv.innerHTML = `
+                    <i class="bi bi-graph-down-arrow empty-state-icon" style="font-size: 3rem;"></i>
+                    <h5 class="fw-bold mb-1">No Data Available</h5>
+                    <p class="text-muted mb-0">Try adjusting your filters.</p>
+                `;
+                
+                chartContainer.appendChild(emptyStateDiv);
+            }
+            
+            function hideEmptyState(chartId) {
+                const chartContainer = document.getElementById(chartId).parentNode;
+                const emptyStateDiv = chartContainer.querySelector('.chart-empty-state');
+                if (emptyStateDiv) {
+                    emptyStateDiv.remove();
+                }
+            }
+
+            function filterAndRender() {
+                let filteredData = [...allFuelPrices];
+
+                const selectedFuelType = fuelTypeFilter.value;
+                const selectedYear = yearFilter.value;
+                const selectedDate = dateFilter.value;
+
+                if (selectedFuelType) {
+                    filteredData = filteredData.filter(item => item.fuel_type === selectedFuelType);
+                }
+
+                if (selectedYear) {
+                    filteredData = filteredData.filter(item => new Date(item.date).getFullYear().toString() === selectedYear);
+                }
+
+                if (selectedDate) {
+                    filteredData = filteredData.filter(item => {
+                        const itemDate = new Date(item.date).toISOString().split('T')[0];
+                        return itemDate === selectedDate;
+                    });
+                }
+                
+                renderAll(filteredData);
+            }
+
+            function renderAll(data) {
+                const chartConfigs = [
+                    { id: 'comboChart', render: renderComboChart },
+                    { id: 'verticalBarChart', render: renderVerticalBarChart },
+                    { id: 'pieChart', render: renderPieChart },
+                    { id: 'polarAreaChart', render: renderPolarAreaChart },
+                    { id: 'doughnutChart', render: renderDoughnutChart },
+                    { id: 'radarChart', render: renderRadarChart }
+                ];
+
+                chartConfigs.forEach(chart => {
+                    if (data.length === 0) {
+                        if (window[chart.id]) window[chart.id].destroy();
+                        showEmptyState(chart.id);
+                    } else {
+                        hideEmptyState(chart.id);
+                        chart.render(data);
+                    }
+                });
+            }
+
+            function renderComboChart(data) {
+                if (comboChart) comboChart.destroy();
+                
+                const dailyPrices = {};
+                data.forEach(item => {
+                    const date = new Date(item.date).toISOString().split('T')[0];
+                    if (!dailyPrices[date]) {
+                        dailyPrices[date] = {};
+                    }
+                    dailyPrices[date][item.fuel_type] = item.price;
+                });
+
+                const labels = Object.keys(dailyPrices).sort();
+                
+                const ron95Data = labels.map(date => dailyPrices[date].ron95 || null);
+                const ron97Data = labels.map(date => dailyPrices[date].ron97 || null);
+                const dieselData = labels.map(date => dailyPrices[date].diesel || null);
+                
+                comboChart = new Chart(document.getElementById('comboChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [
+                            {
+                                label: 'RON95 Price',
+                                data: ron95Data,
+                                backgroundColor: colors.ron95
+                            },
+                            {
+                                label: 'RON97 Price',
+                                data: ron97Data,
+                                backgroundColor: colors.ron97
+                            },
+                            {
+                                label: 'Diesel Price',
+                                data: dieselData,
+                                type: 'line',
+                                borderColor: colors.diesel,
+                                fill: false,
+                                tension: 0.3,
+                                yAxisID: 'y'
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: { legend: { position: 'top' } },
+                        scales: {
+                            x: {
+                                type: 'time',
+                                time: { unit: 'day' },
+                                title: { display: true, text: 'Date' }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                title: { display: true, text: 'Price (RM)' }
+                            }
+                        }
+                    }
+                });
+            }
+
+            function renderVerticalBarChart(data) {
+                if (verticalBarChart) verticalBarChart.destroy();
+
+                const monthlyData = {};
+                data.forEach(item => {
+                    const month = new Date(item.date).toLocaleString('default', { month: 'long', year: 'numeric' });
+                    if (!monthlyData[month]) {
+                        monthlyData[month] = { ron95: [], ron97: [], diesel: [] };
+                    }
+                    if (item.fuel_type && monthlyData[month][item.fuel_type]) {
+                       monthlyData[month][item.fuel_type].push(item.price);
+                    }
+                });
+
+                const labels = Object.keys(monthlyData).sort((a,b) => new Date(a) - new Date(b));
+                const ron95Averages = labels.map(month => {
+                    const prices = monthlyData[month].ron95;
+                    return prices.length > 0 ? prices.reduce((a, b) => a + b) / prices.length : 0;
+                });
+                const ron97Averages = labels.map(month => {
+                    const prices = monthlyData[month].ron97;
+                    return prices.length > 0 ? prices.reduce((a, b) => a + b) / prices.length : 0;
+                });
+                const dieselAverages = labels.map(month => {
+                    const prices = monthlyData[month].diesel;
+                    return prices.length > 0 ? prices.reduce((a, b) => a + b) / prices.length : 0;
+                });
+                
+                verticalBarChart = new Chart(document.getElementById('verticalBarChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [
+                            {
+                                label: 'RON95 Avg Price',
+                                data: ron95Averages,
+                                backgroundColor: colors.ron95
+                            },
+                            {
+                                label: 'RON97 Avg Price',
+                                data: ron97Averages,
+                                backgroundColor: colors.ron97
+                            },
+                            {
+                                label: 'Diesel Avg Price',
+                                data: dieselAverages,
+                                backgroundColor: colors.diesel
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: { legend: { position: 'top' } },
+                        scales: {
+                            x: { title: { display: true, text: 'Month' } },
+                            y: { title: { display: true, text: 'Average Price (RM)' } }
+                        }
+                    }
+                });
+            }
+
+            function renderPieChart(data) {
+                if (pieChart) pieChart.destroy();
+                
+                const fuelCounts = {};
+                data.forEach(item => {
+                    if (fuelCounts[item.fuel_type]) {
+                        fuelCounts[item.fuel_type]++;
+                    } else {
+                        fuelCounts[item.fuel_type] = 1;
+                    }
+                });
+
+                const labels = Object.keys(fuelCounts).map(type => type.toUpperCase());
+                const counts = Object.values(fuelCounts);
+                const backgroundColors = labels.map(label => colors[label.toLowerCase()]);
+
+                pieChart = new Chart(document.getElementById('pieChart'), {
+                    type: 'pie',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            data: counts,
+                            backgroundColor: backgroundColors
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { position: 'top' },
+                            title: { display: true, text: 'Data Point Distribution by Fuel Type' }
+                        }
+                    }
+                });
+            }
+
+            function renderPolarAreaChart(data) {
+                if (polarAreaChart) polarAreaChart.destroy();
+                
+                const fuelAverages = { ron95: [], ron97: [], diesel: [] };
+                data.forEach(item => {
+                    if (fuelAverages[item.fuel_type]) {
+                        fuelAverages[item.fuel_type].push(item.price);
+                    }
+                });
+
+                const labels = ['RON95', 'RON97', 'Diesel'];
+                const averages = labels.map(label => {
+                    const prices = fuelAverages[label.toLowerCase()];
+                    return prices.length > 0 ? prices.reduce((a, b) => a + b) / prices.length : 0;
+                });
+                const backgroundColors = labels.map(label => colors[label.toLowerCase()]);
+                
+                polarAreaChart = new Chart(document.getElementById('polarAreaChart'), {
+                    type: 'polarArea',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            data: averages,
+                            backgroundColor: backgroundColors
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { position: 'top' },
+                            title: { display: true, text: 'Average Fuel Price' }
+                        },
+                        scales: {
+                            r: {
+                                pointLabels: { display: true, centerPointLabels: true }
+                            }
+                        }
+                    }
+                });
+            }
+
+            function renderDoughnutChart(data) {
+                if (doughnutChart) doughnutChart.destroy();
+                
+                const sortedData = data.sort((a, b) => new Date(a.date) - new Date(b));
+                let priceChanges = { increase: 0, decrease: 0, noChange: 0 };
+
+                for (let i = 1; i < sortedData.length; i++) {
+                    const prevPrice = sortedData[i - 1].price;
+                    const currentPrice = sortedData[i].price;
+                    if (currentPrice > prevPrice) {
+                        priceChanges.increase++;
+                    } else if (currentPrice < prevPrice) {
+                        priceChanges.decrease++;
+                    } else {
+                        priceChanges.noChange++;
+                    }
+                }
+                
+                const labels = ['Price Increase', 'Price Decrease', 'No Change'];
+                const dataValues = [priceChanges.increase, priceChanges.decrease, priceChanges.noChange];
+                const backgroundColors = [
+                    'rgba(40, 167, 69, 0.7)',
+                    'rgba(255, 99, 132, 0.7)',
+                    'rgba(108, 117, 125, 0.7)'
+                ];
+
+                doughnutChart = new Chart(document.getElementById('doughnutChart'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            data: dataValues,
+                            backgroundColor: backgroundColors,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { position: 'top' },
+                            title: { display: true, text: 'Proportion of Daily Price Changes' }
+                        }
+                    }
+                });
+            }
+
+            function renderRadarChart(data) {
+                if (radarChart) radarChart.destroy();
+
+                const monthlyAverages = {};
+                data.forEach(item => {
+                    const month = new Date(item.date).toLocaleString('default', { month: 'long' });
+                    if (!monthlyAverages[month]) {
+                        monthlyAverages[month] = { ron95: [], ron97: [], diesel: [] };
+                    }
+                    if (monthlyAverages[month][item.fuel_type]) {
+                        monthlyAverages[month][item.fuel_type].push(item.price);
+                    }
+                });
+
+                const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                const labels = months.filter(month => monthlyAverages[month]);
+
+                const ron95Data = labels.map(month => {
+                    const prices = monthlyAverages[month].ron95;
+                    return prices.length > 0 ? prices.reduce((a, b) => a + b) / prices.length : 0;
+                });
+                const ron97Data = labels.map(month => {
+                    const prices = monthlyAverages[month].ron97;
+                    return prices.length > 0 ? prices.reduce((a, b) => a + b) / prices.length : 0;
+                });
+                const dieselData = labels.map(month => {
+                    const prices = monthlyAverages[month].diesel;
+                    return prices.length > 0 ? prices.reduce((a, b) => a + b) / prices.length : 0;
+                });
+
+                radarChart = new Chart(document.getElementById('radarChart'), {
+                    type: 'radar',
+                    data: {
+                        labels: labels,
+                        datasets: [
+                            {
+                                label: 'RON95',
+                                data: ron95Data,
+                                borderColor: colors.ron95,
+                                backgroundColor: colors.ron95.replace('0.7', '0.2'),
+                                fill: true
+                            },
+                            {
+                                label: 'RON97',
+                                data: ron97Data,
+                                borderColor: colors.ron97,
+                                backgroundColor: colors.ron97.replace('0.7', '0.2'),
+                                fill: true
+                            },
+                            {
+                                label: 'Diesel',
+                                data: dieselData,
+                                borderColor: colors.diesel,
+                                backgroundColor: colors.diesel.replace('0.7', '0.2'),
+                                fill: true
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            r: {
+                                angleLines: { display: false },
+                                suggestedMin: 0,
+                                pointLabels: { font: { size: 14 } }
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // New function to show the modal
+            function showSuccessModal() {
+                const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                successModal.show();
+            }
+
+            // NEW: Add event listeners for the modal to control the animation
+            const successModalEl = document.getElementById('successModal');
+            const successIcon = document.getElementById('successIcon');
+            
+            successModalEl.addEventListener('shown.bs.modal', function () {
+                successIcon.classList.add('modal-icon-animated');
+            });
+            
+            successModalEl.addEventListener('hidden.bs.modal', function () {
+                successIcon.classList.remove('modal-icon-animated');
+            });
+
+            fetchData();
+        });
+    </script>
+}

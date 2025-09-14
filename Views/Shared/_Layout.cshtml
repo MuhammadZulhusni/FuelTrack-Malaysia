@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FuelTrack Malaysia</title>
+    <script type="importmap"></script>
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/128/14009/14009903.png">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/assignment1.styles.css" asp-append-version="true" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding-top: 76px; 
+        }
+        
+        .navbar-fixed {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1030; 
+            width: 100%;
+        }
+        
+        main {
+            flex: 1 0 auto; 
+        }
+        
+        .footer {
+            flex-shrink: 0; 
+            background-color: #f0f2f5;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-lg navbar-fixed">
+            <div class="container">
+                <a class="navbar-brand fw-bold fs-4 text-white" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="bi bi-fuel-pump-fill text-warning me-2"></i>
+                    FuelTrack Malaysia
+                </a>
+                
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-1">
+                            <a class="nav-link fw-semibold px-3 py-2 rounded-pill text-white" 
+                               asp-area="" asp-controller="Home" asp-action="Index">
+                                <i class="bi bi-house-fill me-2"></i>Home
+                            </a>
+                        </li>
+                        <li class="nav-item mx-1">
+                            <a class="nav-link fw-semibold px-3 py-2 rounded-pill text-white" 
+                               asp-area="" asp-controller="About" asp-action="Index">
+                                <i class="bi bi-info-circle-fill me-2"></i>About Us
+                            </a>
+                        </li>
+                        <li class="nav-item mx-1">
+                            <a class="nav-link fw-semibold px-3 py-2 rounded-pill text-white" 
+                               asp-area="" asp-controller="Dashboard" asp-action="Index">
+                                <i class="bi bi-speedometer2 me-2"></i>Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item mx-1">
+                            <a class="nav-link fw-semibold px-3 py-2 rounded-pill text-white" 
+                               asp-area="" asp-controller="Table" asp-action="Index">
+                                <i class="bi bi-table me-2"></i>Data Table
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-12">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer py-4">
+        <div class="container text-center">
+            &copy; 2025 FuelTrack Malaysia. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    
+    <script>
+        // JavaScript to highlight the active link based on the current page's URL
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname.toLowerCase();
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            navLinks.forEach(link => {
+                const linkPath = link.getAttribute('href') ? link.getAttribute('href').toLowerCase() : '';
+                
+                // Remove the 'active' class from all links initially
+                link.classList.remove('active', 'bg-white', 'bg-opacity-25');
+                
+                // Add the 'active' class to the link that matches the current path
+                if (currentPath === linkPath) {
+                    link.classList.add('active', 'bg-white', 'bg-opacity-25');
+                } else {
+                    // Add hover effects for non-active links
+                    link.addEventListener('mouseenter', function() {
+                        this.classList.add('bg-white', 'bg-opacity-10');
+                    });
+                    link.addEventListener('mouseleave', function() {
+                        this.classList.remove('bg-white', 'bg-opacity-10');
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "pNkXk+XSx8k=",
+  "success": true,
+  "projectFilePath": "/Users/admin/Documents/IT Application Development (Degree)/Semester 7/SWC3633 - WEB API DEVELOPMENT/Pair-Assignment/FuelTrack-Malaysia/FuelTrack-Malaysia.csproj",
+  "expectedPackageFiles": [
+    "/Users/admin/.nuget/packages/csvhelper/33.1.0/csvhelper.33.1.0.nupkg.sha512",
+    "/Users/admin/.nuget/packages/ironcompress/1.6.3/ironcompress.1.6.3.nupkg.sha512",
+    "/Users/admin/.nuget/packages/microsoft.io.recyclablememorystream/3.0.1/microsoft.io.recyclablememorystream.3.0.1.nupkg.sha512",
+    "/Users/admin/.nuget/packages/parquet.net/5.2.0/parquet.net.5.2.0.nupkg.sha512",
+    "/Users/admin/.nuget/packages/snappier/1.1.6/snappier.1.1.6.nupkg.sha512",
+    "/Users/admin/.nuget/packages/zstdsharp.port/0.8.1/zstdsharp.port.0.8.1.nupkg.sha512"
+  ],
+  "logs": []
+}
