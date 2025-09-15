@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This repository contains the source code for the **FuelTrack-Malaysia** Web API, developed as part of the SWC3633/SWC4443 course. The API is built on the ASP.NET Core framework and is designed to manage fuel tracking data.
+This repository contains the source code for the **FuelTrack-Malaysia** Web API, developed as part of the SWC3633/SWC4443 course.
 
 ## Pair Assignment
 
